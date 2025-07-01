@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,7 +18,7 @@ interface ServiceCardProps {
   className?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ 
+function ServiceCard({
   title, 
   description, 
   price, 
@@ -28,7 +27,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   badge,
   backgroundColor,
   className
-}) => {
+}: ServiceCardProps) {
   const cardAnimation = useScrollAnimation<HTMLDivElement>({ delay: Math.random() * 300 });
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -91,6 +90,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       </CardContent>
     </Card>
   );
-};
+}
 
 export default ServiceCard;

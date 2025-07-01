@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,12 +11,12 @@ interface BookingDebugPanelProps {
   timeSlot: string;
 }
 
-const BookingDebugPanel: React.FC<BookingDebugPanelProps> = ({
+function BookingDebugPanel({
   serviceId,
   providerId,
   date,
   timeSlot,
-}) => {
+}: BookingDebugPanelProps) {
   const [debugResult, setDebugResult] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -101,6 +100,6 @@ const BookingDebugPanel: React.FC<BookingDebugPanelProps> = ({
       </CardContent>
     </Card>
   );
-};
+}
 
 export default BookingDebugPanel;

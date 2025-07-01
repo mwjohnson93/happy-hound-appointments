@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { Badge } from '@/components/ui/badge';
@@ -21,7 +20,7 @@ interface Appointment {
   provider_name?: string;
 }
 
-const StatusCenter: React.FC = () => {
+function StatusCenter() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -246,6 +245,6 @@ const StatusCenter: React.FC = () => {
       </div>
     </Layout>
   );
-};
+}
 
 export default StatusCenter;

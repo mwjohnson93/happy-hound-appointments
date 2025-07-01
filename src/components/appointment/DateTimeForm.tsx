@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -34,7 +33,7 @@ interface DateTimeFormProps {
   isShowerOnlyService?: boolean;
 }
 
-const DateTimeForm: React.FC<DateTimeFormProps> = ({
+function DateTimeForm({
   date,
   setDate,
   timeSlots,
@@ -54,7 +53,7 @@ const DateTimeForm: React.FC<DateTimeFormProps> = ({
   showSubmitButton,
   stepTitle,
   isShowerOnlyService = false,
-}) => {
+}: DateTimeFormProps) {
   const handleDateSelect = (selectedDate: Date | undefined) => {
     if (selectedDate) {
       setDate(selectedDate);
@@ -63,7 +62,7 @@ const DateTimeForm: React.FC<DateTimeFormProps> = ({
   };
 
   // ✅ SIMPLIFIED: Only check if slot is selected and exists in available slots
-  const isSelectedSlotValid = React.useMemo(() => {
+  const isSelectedSlotValid = useMemo(() => {
     if (!selectedTimeSlotId) return false;
     const validSlot = timeSlots.find(slot => 
       slot.id === selectedTimeSlotId && slot.available
@@ -74,7 +73,7 @@ const DateTimeForm: React.FC<DateTimeFormProps> = ({
   const canProceed = showTimeSlots ? isSelectedSlotValid : date;
 
   // Debug logging for time slots 
-  React.useEffect(() => {
+  useEffect(() => {
     if (showTimeSlots) {
       console.log('🔍 [DateTimeForm] Time slots data:', {
         timeSlots_count: timeSlots.length,
@@ -269,6 +268,6 @@ const DateTimeForm: React.FC<DateTimeFormProps> = ({
       </CardContent>
     </Card>
   );
-};
+}
 
 export default DateTimeForm;

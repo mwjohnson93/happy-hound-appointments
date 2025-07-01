@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { format, isWeekend } from 'date-fns';
@@ -33,7 +32,7 @@ const TimeSlotSelector = ({
   onSelectTimeSlot,
 }: TimeSlotSelectorProps) => {
   // 🔍 DEBUG: Log slot data for validation
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('🕐 [TIME_SLOT_SELECTOR] Rendering with slots:', {
       total_slots: timeSlots.length,
       available_slots: timeSlots.filter(s => s.available).length,

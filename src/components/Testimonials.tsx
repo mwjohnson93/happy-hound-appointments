@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation, animationClasses } from '@/hooks/useScrollAnimation';
@@ -31,7 +30,7 @@ const testimonials: TestimonialProps[] = [
   },
 ];
 
-const Testimonials: React.FC = () => {
+function Testimonials() {
   const headerAnimation = useScrollAnimation<HTMLDivElement>({ delay: 100 });
 
   return (
@@ -87,6 +86,6 @@ const Testimonials: React.FC = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Testimonials;

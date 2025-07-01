@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Card,
@@ -33,7 +32,7 @@ interface BasicInfoFormProps {
   serviceType: 'grooming' | 'veterinary';
 }
 
-const BasicInfoForm: React.FC<BasicInfoFormProps> = ({
+function BasicInfoForm({
   userPets,
   services,
   selectedPet,
@@ -42,7 +41,7 @@ const BasicInfoForm: React.FC<BasicInfoFormProps> = ({
   setSelectedService,
   onNext,
   serviceType
-}) => {
+}: BasicInfoFormProps) {
   const { user } = useAuth();
   const navigate = useNavigate();
   
@@ -146,6 +145,6 @@ const BasicInfoForm: React.FC<BasicInfoFormProps> = ({
       </Card>
     </div>
   );
-};
+}
 
 export default BasicInfoForm;

@@ -1,5 +1,4 @@
-
-import React from 'react';
+import { useEffect } from 'react';
 import { useAppointmentForm } from '@/hooks/useAppointmentForm';
 import BasicInfoForm from './appointment/BasicInfoForm';
 import DateTimeForm from './appointment/DateTimeForm';
@@ -9,7 +8,7 @@ interface AppointmentFormProps {
   serviceType: 'grooming' | 'veterinary';
 }
 
-const AppointmentForm: React.FC<AppointmentFormProps> = ({ serviceType = 'grooming' }) => {
+const AppointmentForm = ({ serviceType = 'grooming' }: AppointmentFormProps) => {
   const {
     date,
     setDate,
@@ -41,7 +40,7 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ serviceType = 'groomi
   } = useAppointmentForm(serviceType);
 
   // Fetch appropriate services when service type changes
-  React.useEffect(() => {
+  useEffect(() => {
     fetchServices(serviceType);
   }, [serviceType, fetchServices]);
 

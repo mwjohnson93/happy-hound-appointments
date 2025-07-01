@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useAppointmentFormState } from './useAppointmentFormState';
@@ -96,7 +96,7 @@ export const useAppointmentForm = (serviceType: 'grooming' | 'veterinary') => {
   });
 
   // ✅ SIMPLIFIED: Only validate that slot exists in current timeSlots array
-  const isSelectedSlotValid = React.useMemo(() => {
+  const isSelectedSlotValid = useMemo(() => {
     if (!formState.selectedTimeSlotId) return false;
     const validSlot = timeSlots.find(slot => 
       slot.id === formState.selectedTimeSlotId && slot.available
@@ -118,7 +118,7 @@ export const useAppointmentForm = (serviceType: 'grooming' | 'veterinary') => {
   }, [requiresGroomer, serviceRequirementsLoaded, formState.selectedGroomerId, formState]);
 
   // ✅ IMPROVED: Only reset time slot when NECESSARY (not aggressively)
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('🔄 [APPOINTMENT_FORM] Dependency change detected:', {
       service: formState.selectedService,
       groomer: formState.selectedGroomerId,
@@ -138,7 +138,7 @@ export const useAppointmentForm = (serviceType: 'grooming' | 'veterinary') => {
   }, [formState.selectedService, formState.selectedGroomerId, formState.date]);
 
   // ✅ SMART: Only reset slot if it's NOT in the new available slots
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('🕐 [APPOINTMENT_FORM] Time slots updated:', {
       slots_count: timeSlots.length,
       available_count: timeSlots.filter(s => s.available).length,

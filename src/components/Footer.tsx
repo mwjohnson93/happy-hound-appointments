@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Dog } from 'lucide-react';
 
-const Footer: React.FC = () => {
+function Footer() {
   return (
     <footer className="bg-secondary py-12 text-secondary-foreground">
       <div className="max-w-7xl mx-auto px-6">
@@ -61,6 +60,6 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

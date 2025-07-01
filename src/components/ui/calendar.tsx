@@ -1,5 +1,5 @@
-
 import * as React from "react";
+import { useMemo } from "react";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 import { DayPicker, DropdownProps } from "react-day-picker";
 import { format, getYear, differenceInYears } from "date-fns";
@@ -33,7 +33,7 @@ function Calendar({
     }
     
     // Years array
-    const years = React.useMemo(() => {
+    const years = useMemo(() => {
       if (!fromYear || !toYear) return [];
       return Array.from(
         { length: toYear - fromYear + 1 }, 
@@ -42,7 +42,7 @@ function Calendar({
     }, [fromYear, toYear]);
     
     // Months array
-    const months = React.useMemo(() => [
+    const months = useMemo(() => [
       "Janeiro", "Fevereiro", "Março", "Abril", 
       "Maio", "Junho", "Julho", "Agosto", 
       "Setembro", "Outubro", "Novembro", "Dezembro"
