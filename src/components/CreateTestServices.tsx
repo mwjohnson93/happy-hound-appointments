@@ -67,7 +67,7 @@ const CreateTestServices = () => {
       console.log('✅ Test services created successfully');
       toast.success('Serviços de teste criados com sucesso!');
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('💥 Error creating test services:', error);
       toast.error('Erro ao criar serviços de teste: ' + error.message);
     } finally {

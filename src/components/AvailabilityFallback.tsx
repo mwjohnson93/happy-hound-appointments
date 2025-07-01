@@ -53,7 +53,7 @@ export default function AvailabilityFallback({
           onAvailabilityEnsured?.();
         }
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error in availability fallback:', error);
     } finally {
       setIsChecking(false);

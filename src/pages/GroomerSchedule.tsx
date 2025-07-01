@@ -107,7 +107,7 @@ const GroomerSchedule = () => {
       } else {
         setAvailabilitySlots(generateDefaultSlots());
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error fetching availability:', error);
       toast.error('Erro ao carregar disponibilidade');
       setAvailabilitySlots(generateDefaultSlots());
@@ -150,7 +150,7 @@ const GroomerSchedule = () => {
       );
 
       toast.success('Disponibilidade atualizada');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating availability:', error);
       toast.error('Erro ao atualizar disponibilidade');
     }

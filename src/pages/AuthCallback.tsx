@@ -45,7 +45,7 @@ const AuthCallback = () => {
         // No session found, redirect to login
         toast.error('Sessão não encontrada');
         navigate('/login', { replace: true });
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error("Auth callback error:", error);
         toast.error(error.message || 'Erro na autenticação');
         navigate('/login', { replace: true });

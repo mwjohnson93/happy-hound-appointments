@@ -42,7 +42,7 @@ const Shop = () => {
         if (error) throw error;
         setProducts(data || []);
         setFilteredProducts(data || []);
-      } catch (error: any) {
+      } catch (error: unknown) {
         toast.error('Erro ao carregar produtos: ' + error.message);
       } finally {
         setIsLoading(false);
@@ -134,7 +134,7 @@ const Shop = () => {
       
       setCartCount(prev => prev + 1);
       toast.success(`${product.name} adicionado ao carrinho!`);
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Erro ao adicionar ao carrinho: ' + error.message);
     }
   };

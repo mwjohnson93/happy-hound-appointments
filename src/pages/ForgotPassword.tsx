@@ -28,7 +28,7 @@ const ForgotPassword = () => {
       
       setIsEmailSent(true);
       toast.success('Email de recuperação enviado!');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error(error.message || 'Erro ao enviar email de recuperação');
     } finally {
       setIsLoading(false);

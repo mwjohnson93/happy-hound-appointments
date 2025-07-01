@@ -75,7 +75,7 @@ const CreateAvailabilitySlots = () => {
 
       console.log('✅ Availability slots created successfully');
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('💥 Error creating availability slots:', error);
       throw error;
     }

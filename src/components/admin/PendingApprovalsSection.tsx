@@ -84,7 +84,7 @@ const PendingApprovalsSection = () => {
       );
 
       setPendingAppointments(appointmentsWithUserData);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error fetching pending appointments:', error);
       toast.error('Erro ao carregar agendamentos pendentes');
     } finally {
@@ -109,7 +109,7 @@ const PendingApprovalsSection = () => {
       const actionText = action === 'confirmed' ? 'aprovado' : 'rejeitado';
       toast.success(`Agendamento ${actionText} com sucesso!`);
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`Error ${action} appointment:`, error);
       toast.error(`Erro ao ${action === 'confirmed' ? 'aprovar' : 'rejeitar'} agendamento`);
     } finally {

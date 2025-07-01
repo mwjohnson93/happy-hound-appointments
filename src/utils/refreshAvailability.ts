@@ -46,7 +46,7 @@ export const refreshAvailability = async (): Promise<RefreshAvailabilityResponse
 
     return data;
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('💥 Unexpected error in refreshAvailability:', error);
     toast.error('Erro inesperado ao atualizar disponibilidade');
     return {
@@ -86,7 +86,7 @@ export const rollDailyAvailability = async (): Promise<RefreshAvailabilityRespon
 
     return data;
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('💥 Unexpected error in rollDailyAvailability:', error);
     toast.error('Erro inesperado ao atualizar disponibilidade diária');
     return {

@@ -117,7 +117,7 @@ const GroomerDashboard = () => {
       
       setTodayAppointments(todayAppts);
       setUpcomingAppointments(upcomingAppts);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error fetching appointments:', error);
       toast.error('Erro ao carregar agendamentos');
     } finally {
@@ -150,7 +150,7 @@ const GroomerDashboard = () => {
       setUpcomingAppointments(prev => prev.map(updateAppointment));
       
       toast.success('Status atualizado com sucesso');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating appointment:', error);
       toast.error('Erro ao atualizar status');
     }

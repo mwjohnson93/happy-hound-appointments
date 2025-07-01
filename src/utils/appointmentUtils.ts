@@ -210,7 +210,7 @@ export async function createAppointment(
       bookingData 
     };
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('💥 [CREATE_APPOINTMENT] CRITICAL ERROR:', {
       error_message: error?.message,
       error_stack: error?.stack,

@@ -207,7 +207,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       toast.success('Login realizado com sucesso!');
       navigate('/');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Sign in error:', error);
       toast.error(error.message || 'Erro ao fazer login');
       throw error;
@@ -224,7 +224,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       });
 
       if (error) throw error;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Google sign in error:', error);
       toast.error(error.message || 'Erro ao fazer login com Google');
       throw error;
@@ -249,7 +249,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       toast.success('Conta criada com sucesso! Verifique seu email.');
       navigate('/login');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Sign up error:', error);
       toast.error(error.message || 'Erro ao criar conta');
       throw error;
@@ -270,14 +270,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         // First attempt: standard logout
         await supabase.auth.signOut();
         console.log('✅ Standard logout successful');
-      } catch (standardError: any) {
+      } catch (standarderror: unknown) {
         console.warn('⚠️ Standard logout failed, trying global logout:', standardError);
         
         try {
           // Second attempt: global logout
           await supabase.auth.signOut({ scope: 'global' });
           console.log('✅ Global logout successful');
-        } catch (globalError: any) {
+        } catch (globalerror: unknown) {
           console.warn('⚠️ Global logout also failed:', globalError);
           
           // Third attempt: Clear session locally and continue
@@ -297,7 +297,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       // Navigate immediately after clearing state
       navigate('/', { replace: true });
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('💥 Sign out error:', error);
       
       // Even if there's an error, ensure we clear state and redirect

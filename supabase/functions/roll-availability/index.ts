@@ -105,7 +105,7 @@ serve(async (req) => {
       }
     );
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('💥 Unexpected error in roll-availability:', error);
     return new Response(
       JSON.stringify({ 

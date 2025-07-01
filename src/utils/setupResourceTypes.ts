@@ -44,7 +44,7 @@ export const setupResourceTypes = async () => {
 
     console.log('✅ Resource types set up successfully');
     return true;
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('💥 Error setting up resource types:', error);
     toast.error('Erro ao configurar tipos de recursos');
     return false;

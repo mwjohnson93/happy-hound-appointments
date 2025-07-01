@@ -87,7 +87,7 @@ const ServiceStatusSection = () => {
       );
 
       setConfirmedAppointments(appointmentsWithUserData);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error fetching confirmed appointments:', error);
       toast.error('Erro ao carregar serviços confirmados');
     } finally {
@@ -123,7 +123,7 @@ const ServiceStatusSection = () => {
 
       toast.success(`Status atualizado para: ${statusText}`);
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error updating service status:', error);
       toast.error('Erro ao atualizar status do serviço');
     } finally {

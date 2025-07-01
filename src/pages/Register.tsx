@@ -144,7 +144,7 @@ const Register = () => {
       }
       
       // Signup function will navigate to login
-    } catch (error: any) {
+    } catch (error: unknown) {
       setError(error.message || 'Erro ao criar conta.');
     } finally {
       setIsLoading(false);

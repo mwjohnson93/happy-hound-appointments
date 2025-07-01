@@ -96,7 +96,7 @@ const Appointments = () => {
           console.log('Formatted appointments:', formattedData);
           setAppointments(formattedData);
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
         console.error('Error fetching appointments:', error.message);
         toast.error('Erro ao carregar os agendamentos');
       } finally {
@@ -129,7 +129,7 @@ const Appointments = () => {
       if (appointment) {
         toast.success(`Agendamento para ${appointment.pet_name} foi cancelado.`);
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error cancelling appointment:', error.message);
       toast.error('Erro ao cancelar agendamento');
     }

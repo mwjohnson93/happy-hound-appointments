@@ -33,7 +33,7 @@ const Login = () => {
     
     try {
       await signIn(email, password);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setError(error.message || 'Falha ao fazer login. Verifique suas credenciais.');
     } finally {
       setIsLoading(false);

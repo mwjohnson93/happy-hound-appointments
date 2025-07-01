@@ -59,7 +59,7 @@ const Cart = () => {
       if (error) throw error;
       
       setCartItems(data || []);
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Erro ao carregar itens do carrinho: ' + error.message);
     } finally {
       setIsLoading(false);
@@ -89,7 +89,7 @@ const Cart = () => {
       setCartItems(cartItems.map(item => 
         item.id === itemId ? { ...item, quantity: newQuantity } : item
       ));
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Erro ao atualizar quantidade: ' + error.message);
     }
   };
@@ -105,7 +105,7 @@ const Cart = () => {
       
       setCartItems(cartItems.filter(item => item.id !== itemId));
       toast.success('Item removido do carrinho');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Erro ao remover item: ' + error.message);
     }
   };
@@ -121,7 +121,7 @@ const Cart = () => {
       
       setCartItems([]);
       toast.success('Carrinho esvaziado');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Erro ao limpar carrinho: ' + error.message);
     }
   };
@@ -180,7 +180,7 @@ const Cart = () => {
       setAddress('');
       toast.success('Pedido realizado com sucesso!');
       navigate('/confirmation');
-    } catch (error: any) {
+    } catch (error: unknown) {
       toast.error('Erro ao processar pedido: ' + error.message);
     } finally {
       setIsSubmitting(false);

@@ -25,7 +25,7 @@ export const useGroomerRegistration = () => {
 
       toast.success('Disponibilidade configurada!');
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('❌ Unexpected error in createInitialAvailability:', error);
       toast.warning('Disponibilidade pode ter sido configurada automaticamente.');
       return false;

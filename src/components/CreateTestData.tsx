@@ -83,7 +83,7 @@ const CreateTestData = () => {
       console.log('✅ Test data created successfully with availability for next 7 days');
       toast.success('Dados de teste criados com sucesso!');
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('💥 Error creating test data:', error);
       toast.error('Erro ao criar dados de teste: ' + error.message);
     } finally {
@@ -160,7 +160,7 @@ const CreateTestData = () => {
       console.log('✅ Availability created for all registered providers');
       toast.success(`Disponibilidade criada para ${registeredProviders.length} provedores!`);
 
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('💥 Error creating provider availability:', error);
       toast.error('Erro ao criar disponibilidade: ' + error.message);
     } finally {

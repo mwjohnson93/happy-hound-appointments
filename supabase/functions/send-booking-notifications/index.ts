@@ -190,7 +190,7 @@ const handler = async (req: Request): Promise<Response> => {
       }
     );
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('❌ Error sending booking notifications:', error);
     return new Response(
       JSON.stringify({ error: error.message }),

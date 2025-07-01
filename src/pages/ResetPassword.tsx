@@ -52,7 +52,7 @@ const ResetPassword = () => {
       
       toast.success('Senha alterada com sucesso!');
       navigate('/login');
-    } catch (error: any) {
+    } catch (error: unknown) {
       setError(error.message || 'Erro ao alterar senha');
     } finally {
       setIsLoading(false);
